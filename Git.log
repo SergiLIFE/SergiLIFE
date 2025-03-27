@@ -1,0 +1,33 @@
+try {
+    # Download the Google Cloud SDK installer
+    Invoke-WebRequest -Uri https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe -OutFile "$env:Temp\GoogleCloudCLIInstaller.exe"
+} catch {
+    Write-Error "Failed to download the Google Cloud SDK installer."
+    exit 1
+}
+
+try {
+    # Run the installer
+    Start-Process -FilePath "$env:Temp\GoogleCloudCLIInstaller.exe" -ArgumentList "/S" -Wait
+} catch {
+    Write-Error "Failed to start the Google Cloud SDK installer."
+    exit 1
+}
+
+# Verify the installation path
+$installPath = "C:\Program Files\Google\Cloud SDK\google-cloud-sdk\install.bat"
+if (Test-Path $installPath) {
+    try {
+        # Install Google Cloud SDK
+        & $installPath install
+
+        # Install kubectl Component
+        & $installPath components install kubectl
+    } catch {
+        Write-Error "Failed to install Google Cloud SDK or kubectl component."
+        exit 1
+    }
+} else {
+    Write-Error "The install.bat file was not found at the specified path: $installPath"
+    exit 1
+}
