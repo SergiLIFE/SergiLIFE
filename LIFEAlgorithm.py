@@ -208,7 +208,10 @@ class AdaptiveLearningEEG:
             self.user_traits['focus'] = 'low'
             self.learning_rate *= 0.8  # Decrease learning rate
         
-        print(f"Delta Wave Activity: {delta_wave_activity}, Focus: {self.user_traits['focus']}")
+        # Cap the learning rate to a safe range to prevent runaway updates.
+        # Here we cap the value between 0.01 and 1.0 (adjust these limits as needed).
+        self.learning_rate = max(min(self.learning_rate, 1.0), 0.01)
+        print(f"Delta Wave Activity: {delta_wave_activity}, Focus: {self.user_traits['focus']}, Learning Rate: {self.learning_rate}")
     
     def adapt_learning_model(self, experience):
         """
