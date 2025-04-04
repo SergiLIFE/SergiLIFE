@@ -37,4 +37,4 @@ steps:
   displayName: 'pytest'
 
 container:Untitled-1.py
-resources:
+# Removed the incomplete resources section
