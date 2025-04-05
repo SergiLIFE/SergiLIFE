@@ -1,17 +1,3 @@
-{
-  "schemaVersion": "2.2",
-  "description": "Example SSM document for Dopamine Persistence calculation",
-  "mainSteps": [
-    {
-      "action": "aws:runCommand",
-      "name": "calculatePersistence",
-      "inputs": {
-        "DocumentName": "calculate_persistence_script"
-      }
-    }
-  ]
-}
-
 import numpy as np
 
 def calculate_persistence(DRD2: float, BDNF: float, epsilon: float = 0.0) -> float:
@@ -36,6 +22,6 @@ if __name__ == "__main__":
     DRD2_level = 1.5
     BDNF_level = 2.3
     epsilon_value = np.random.normal(0, 0.1)  # Adding some noise
-    epsilon_value = np.random.normal(0, 0.1)  # Dynamically generating epsilon
+
     persistence_value = calculate_persistence(DRD2_level, BDNF_level, epsilon_value)
     print(f"Calculated Persistence: {persistence_value}")
