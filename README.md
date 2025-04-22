@@ -1,4 +1,11 @@
-# Welcome to SergiLIFE's Profile
+sequenceDiagram
+    participant LIFEAlgorithm
+    LIFEAlgorithm->>LIFEAlgorithm: concrete_experience(new_data)
+    LIFEAlgorithm->>LIFEAlgorithm: reflective_observation()
+    LIFEAlgorithm->>LIFEAlgorithm: abstract_conceptualization(reflections)
+    LIFEAlgorithm->>LIFEAlgorithm: active_experimentation(environment)
+    activate LIFEAlgorithm
+    deactivate LIFEAlgorithm# Welcome to SergiLIFE's Profile
 
 - 👋 Hi, I’m @SergiLIFE
 - 👀 I’m interested in ...
