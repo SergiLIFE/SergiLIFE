@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+
+    <!-- Row 1: Logo left + product name -->
+    <w:p>
+        <w:r>
+            <w:drawing>
+                <wp:inline distT="0" distB="0" distL="0" distR="0">
+                    <wp:extent cx="4500000" cy="900000" />
+                    <wp:effectExtent l="0" t="0" r="0" b="0" />
+                    <wp:docPr id="1" name="Logo" />
+                    <a:graphic>
+                        <a:graphicData
+                            uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                            <pic:pic>
+                                <pic:nvPicPr>
+                                    <pic:cNvPr id="0" name="logo.png" />
+                                    <pic:cNvPicPr />
+                                </pic:nvPicPr>
+                                <pic:blipFill>
+                                    <a:blip r:embed="rId9" />
+                                    <a:stretch>
+                                        <a:fillRect />
+                                    </a:stretch>
+                                </pic:blipFill>
+                                <pic:spPr>
+                                    <a:xfrm />
+                                    <a:prstGeom prst="rect">
+                                        <a:avLst />
+                                    </a:prstGeom>
+                                </pic:spPr>
+                            </pic:pic>
+                        </a:graphicData>
+                    </a:graphic>
+                </wp:inline>
+            </w:drawing>
+        </w:r>
+        <w:r>
+            <w:t xml:space="preserve"> </w:t>
+        </w:r>
+        <w:r>
+            <w:t>SergiLIFE — L.I.F.E THEORY</w:t>
+        </w:r>
+    </w:p>
+
+    <!-- Watermark (centered, diagonal) -->
+    <w:p>
+        <w:r>
+            <w:pict>
+                <v:shape id="wmConfidential" type="#_x0000_t136"
+                    style="position:absolute; width:700pt; height:120pt; margin-left:0; margin-top:0; mso-position-horizontal:center; mso-position-vertical:center; rotation:315;"
+                    filled="t" stroked="f">
+                    <v:fill opacity=".12" />
+                    <v:textpath on="t" fitshape="t"
+                        style="font-family:'Segoe UI'; font-size:48pt; v-text-kern:t"
+                        string="Confidential — Proprietary" />
+                </v:shape>
+            </w:pict>
+        </w:r>
+    </w:p>
+
+</w:hdr>

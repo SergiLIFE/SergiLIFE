@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    PR[Pull Request] --> CI[CI Checks]
+    CI --> BENCH[Benchmarks & Evidence]
+    BENCH --> GATE[SOTA Gate]
+    GATE -->|pass| PROMOTE[Promote Champion]
+    GATE -->|fail| BLOCK[Block/Report]
+```

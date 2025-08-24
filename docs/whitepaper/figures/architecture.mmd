@@ -1,0 +1,24 @@
+```mermaid
+flowchart LR
+    subgraph Data
+        IN[Ingestion]
+        QC[Quality]
+        PRE[Preprocess]
+    end
+    subgraph Compute
+        ORG[Self-Organization]
+        LEARN[Continuous Learning]
+        OPT[Self-Optimization]
+        TA[Trait Assessment]
+    end
+    subgraph Ops
+        CI[CI/CD]
+        EV[Evidence Bundles]
+        OBS[OpenTelemetry]
+    end
+    IN --> QC --> PRE --> ORG --> LEARN --> TA --> OPT
+    OPT --> CI --> EV
+    OBS -.-> ORG
+    OBS -.-> LEARN
+    OBS -.-> TA
+```

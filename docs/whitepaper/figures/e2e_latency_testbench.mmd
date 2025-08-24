@@ -1,0 +1,7 @@
+```mermaid
+flowchart TD
+    TRIG[External Trigger] --> API[Service Endpoint]
+    API --> PIPE[Processing Pipeline]
+    PIPE --> RESP[Response]
+    TRIG -. timestamps .-> RESP
+```

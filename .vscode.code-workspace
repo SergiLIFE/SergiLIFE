@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-vfs://github/SergiLIFE/.vscode"
+		}
+	],
+	"settings": {
+		"debug.openDebug": "neverOpen",
+		"debug.showInStatusBar": "always",
+		"files.associations": {
+			"*.py": "python",
+			"*test*.py": "python",
+			"test_*.py": "python",
+			"*_test.py": "python"
+		},
+		"git.confirmSync": false,
+		"terminal.integrated.env.linux": {
+			"PYTHONPATH": "${workspaceFolder}"
+		},
+		"python.languageServer": "Pylance",
+		"python.analysis.autoFormatStrings": true,
+		"extensions.ignoreRecommendations": false,
+		"notebook.cellToolbarLocation": {
+			"default": "right",
+			"jupyter-notebook": "left"
+		},
+		"workbench.editorAssociations": {
+			"*.ipynb": "jupyter-notebook"
+		},
+		"yaml.schemas": {
+			"https://json.schemastore.org/github-workflow.json": "/.github/workflows/*",
+			"https://json.schemastore.org/azure-pipelines.json": "/azure-pipelines.yml",
+			"https://json.schemastore.org/chart.json": "/charts/*/Chart.yaml",
+			"kubernetes": "/*.k8s.yaml"
+		},
+		"redhat.telemetry.enabled": false
+	}
+}

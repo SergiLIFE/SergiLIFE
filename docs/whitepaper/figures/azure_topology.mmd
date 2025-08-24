@@ -1,0 +1,13 @@
+```mermaid
+flowchart LR
+    subgraph Azure
+      ACI[App Service]
+      KV[Key Vault]
+      STG[Blob Storage]
+      AI[App Insights]
+    end
+    User --> ACI
+    ACI --> STG
+    ACI --> KV
+    ACI --> AI
+```

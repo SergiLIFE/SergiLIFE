@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:fonts xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:font w:name="Segoe UI" />
+    <w:font w:name="Segoe UI Semibold" />
+    <w:font w:name="Consolas" />
+    <w:font w:name="Calibri" />
+    <w:font w:name="Arial" />
+</w:fonts>

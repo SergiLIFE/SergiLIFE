@@ -1,0 +1,115 @@
+version: 1
+
+dataset:
+  name: eeg_synthetic_v1
+  path: data/eeg_synthetic_v1/  # pin dataset version/path
+  splits: [train, val, test]
+  seeds: [42, 43, 44]
+  folds: 0  # set >0 to enable k-fold CV
+
+targets:
+  primary:
+    name: feature_latency_ms
+    direction: minimize
+    threshold: 20.0  # fast-stage budget, example
+    hard_cap: 100.0  # clinical end-to-end cap
+  secondary:
+    - name: accuracy
+      direction: maximize
+      threshold: 0.85
+      min_effect_size: 0.2  # Hedges g
+  # Keys used by tools/bci_sota_benchmark.py
+  latency_sota_ms: 100.0
+  latency_hard_cap_ms: 250.0
+  accuracy_minimum: 0.75
+
+promotion_rules:
+  require_significance: true  # p<0.05
+  require_effect_size: true
+  guardrails:
+    - name: no_nan_inf
+    - name: feature_shape_parity
+    - name: end_to_end_latency_cap  # enforce clinical <=100ms
+
+stop_rules:
+  plateau_delta: 0.002  # relative improvement epsilon
+  plateau_patience: 5   # consecutive cycles with <epsilon improvement
+  max_runs: 100         # safety cap per campaign
+
+numerical_parity:
+  compare_normal_vs_fast:
+    enabled: true
+    relative_tolerance: 0.015  # 1.5% median rel diff acceptable
+    hard_fail: 0.03             # >3% fails hard
+
+# Parity block used by tools/bci_sota_benchmark.py
+parity:
+  rel_tolerance: 0.015
+  rel_hard_fail: 0.03
+
+hardware_profile:
+  cpu: "AMD/Intel modern x64"
+  os: "Windows/Linux CI"
+  python: "3.11+"
+  memory_gb: 8
+  note: "Pin this profile when claiming SOTA"
+
+benchmark_settings:
+  warmup_rounds: 3
+  measurement_rounds: 10
+  iterations_per_round: 50
+  timeout_seconds: 300
+
+optimizer_flags:
+  # Production defaults (locked-in optimal configuration)
+  LIFE_FAST_MODE: 1  # Default: enabled
+  LIFE_OPT_CACHE: 1  # Default: enabled (champion configuration)
+  # Available for nightly optimization tuning
+  LIFE_OPT_PREALLOC: [0, 1]
+  LIFE_OPT_RFFT: [0, 1]
+  LIFE_OPT_BAND_VECT: [0, 1]
+  LIFE_OPT_REDUCE_ALLOC: [0, 1]
+
+production_profile:
+  name: "cache_optimized_v1"
+  locked_flags:
+    LIFE_FAST_MODE: 1
+    LIFE_OPT_CACHE: 1
+  baseline_latency_ms: 15.12
+  target_p95_ms: 18.0  # ~20% headroom from mean
+  target_p99_ms: 22.0  # ~45% headroom from mean
+
+reporting:
+  output_format: ["json", "csv", "markdown"]
+  include_plots: true
+  email_notifications: false
+  sota_comparison: true
+
+validation:
+  feature_extraction_correctness: true
+  fast_vs_normal_parity: true
+  memory_leak_check: false
+  performance_regression_check: true
+  # Enhanced monitoring and parity checks
+  edge_case_parity: true
+  long_session_drift: true
+  cache_hit_rate_monitoring: true
+  # Tail latency monitoring
+  p95_latency_monitoring: true
+  p99_latency_monitoring: true
+  tail_behavior_detection: true
+
+monitoring:
+  production_metrics:
+    - mean_latency_ms
+    - p95_latency_ms
+    - p99_latency_ms
+    - cache_hit_rate
+    - numerical_drift_score
+    - edge_case_failures
+  alert_thresholds:
+    p95_latency_ms: 18.0
+    p99_latency_ms: 22.0
+    cache_hit_rate_min: 0.85
+    numerical_drift_max: 0.05
+    edge_case_failure_rate_max: 0.01

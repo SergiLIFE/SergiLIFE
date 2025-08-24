@@ -1,0 +1,2 @@
+# requirements.txt
+my_eeg_module.py

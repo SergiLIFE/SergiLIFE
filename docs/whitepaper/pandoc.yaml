@@ -1,0 +1,38 @@
+title: "L.I.F.E THEORY — A Self‑Evolving Neural Architecture for Autonomous Intelligence"
+author:
+  - SergiLIFE et al.
+date: "2025-08-23"
+papersize: a4
+geometry: margin=1in
+linkcolor: blue
+colorlinks: true
+urlcolor: blue
+
+# Watermark and page style for PDF via LaTeX
+header-includes:
+  - |
+    \usepackage{fancyhdr}
+    \usepackage{draftwatermark}
+    % Watermark settings
+    \SetWatermarkText{Confidential — Proprietary}
+    \SetWatermarkScale{0.9}
+    \SetWatermarkColor[gray]{0.85}
+    \SetWatermarkAngle{45}
+    % Page style
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{L.I.F.E THEORY}
+    \lhead{SergiLIFE}
+    \cfoot{\thepage}
+    \fancyfoot[L]{© 2025 SergiLIFE. All rights reserved. Unauthorized commercial use prohibited.}
+
+footer: "© 2025 SergiLIFE. All rights reserved. Unauthorized commercial use prohibited."
+pdf-engine: xelatex
+standalone: true
+table-of-contents: true
+toc-depth: 3
+number-sections: true
+variables:
+  linestretch: 1.1
+  mainfont: "Times New Roman"
+  monofont: "Consolas"

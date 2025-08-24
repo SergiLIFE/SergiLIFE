@@ -1,0 +1,72 @@
+# 3‑Venturi Control Configuration
+# Named after Giovanni Battista Venturi (1746-1822)
+
+control:
+  ingestion:
+    enabled: true
+    target_flow_rps: 50  # desired trials/sec into pipeline
+    smoothing_alpha: 0.3
+    pid: 
+      kp: 0.8
+      ki: 0.1 
+      kd: 0.05
+    max_queue: 200
+    
+  processing:
+    enabled: true
+    fast_mode_default: true
+    cache_enabled: true
+    latency_target_ms: 20  # feature/inference stage target
+    pid:
+      kp: 0.7
+      ki: 0.08
+      kd: 0.04
+      
+  output:
+    enabled: true
+    emit_rate_rps: 50
+    pid:
+      kp: 0.6
+      ki: 0.06
+      kd: 0.03
+
+# SOTA Contract Requirements for Clinical BCI Systems
+sota_contract:
+  latency_sota_ms: 100.0    # end-to-end clinical budget
+  hard_cap_ms: 250.0        # absolute maximum latency
+  accuracy_minimum: 0.75    # minimum accuracy threshold
+  parity_rel_hard: 0.03     # relative error threshold (3%)
+  
+# Clinical BCI Standards
+clinical_standards:
+  target_latency_ms: 100
+  fast_mode_threshold_ms: 20
+  feature_extraction_budget_ms: 30
+  inference_budget_ms: 40
+  output_budget_ms: 30
+  
+# Venturi Stage Limits
+limits:
+  ingestion:
+    min_flow_rps: 5
+    max_flow_rps: 500
+    max_queue_depth: 1000
+    
+  processing:
+    min_latency_ms: 5
+    max_latency_ms: 60
+    cache_hit_rate_target: 0.8
+    
+  output:
+    min_emit_rps: 5
+    max_emit_rps: 500
+    
+# Monitoring and Alerting
+monitoring:
+  telemetry_interval_sec: 1.0
+  metrics_window_sec: 10.0
+  alert_thresholds:
+    latency_warning_ms: 80
+    latency_critical_ms: 95
+    efficiency_warning: 0.6
+    queue_depth_warning: 150

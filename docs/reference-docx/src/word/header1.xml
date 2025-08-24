@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <w:p>
+        <w:r>
+            <w:t>SergiLIFE — L.I.F.E THEORY</w:t>
+        </w:r>
+    </w:p>
+    <w:p>
+        <w:r>
+            <w:pict>
+                <v:shape id="watermark"
+                    style="position:absolute;margin-left:0;margin-top:0;width:0;height:0;mso-position-horizontal:center;mso-position-vertical:center"
+                    type="#_x0000_t136" o:spid="_x0000_s1025" filled="f" stroked="f">
+                    <v:textpath on="t" string="Confidential — Proprietary"
+                        style="font-family:'Segoe UI';font-size:48pt" />
+                    <v:fill opacity=".15" />
+                </v:shape>
+            </w:pict>
+        </w:r>
+    </w:p>
+</w:hdr>

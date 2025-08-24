@@ -1,0 +1,81 @@
+# Experiment manifest for BCI Competition IV 2a - SOTA Minimal
+experiment: "BCI-IV-2a_SOTA_Minimal"
+
+dataset:
+  name: "BCI Competition IV 2a"
+  provider: "BNCI Horizon 2020"
+  reference: "BCI Competition IV official site"
+  subjects: ["A01","A02","A03","A04","A05","A06","A07","A08","A09"]
+  channels: 22
+  eog_channels: 3
+  sampling_rate: 250
+  tasks: ["left_hand","right_hand","feet","tongue"]
+  sessions:
+    train: "T"
+    eval: "E"
+  source:
+    official_page: "bbci.de competition IV 2a"
+    bnci_mirror: "BNCI Horizon dataset index"
+
+preprocessing:
+  bandpass_hz: []
+  notch_hz: 50
+  causal: true
+  epoch_window_s: [0.5, 4.5]  # relative to cue onset; 4.0s window
+  normalization: "per-channel standardize (z-score) after epoching"
+  referencing: "common average reference"
+
+splits:
+  protocol: "Within-subject: train on session T, test on session E"
+  cross_subject: false
+  random_seed: 42
+
+models:
+  - id: "CSP_LDA"
+    type: "classical"
+    feature: "CSP"
+    csp_bands_hz: []  # canonical MI band for CSP baselines (use bandpass_hz)
+    csp_filters_per_class: 3
+    classifier: "LDA"
+    reference: "CSP+LDA classical MI baseline"
+
+  - id: "EEGNet"
+    type: "deep"
+    architecture: "EEGNet-v2 canonical"
+    optimizer: "Adam"
+    learning_rate: 0.001
+    batch_size: 64
+    epochs: 200
+    early_stopping_patience: 25
+    input_format: "C x T"
+    reference: "EEGNet used as strong MI CNN baseline"
+
+lifetheory:
+  id: "LIFE_THEORY"
+  entrypoint: "EEGProcessor.process"
+  stages: ["SIGNAL_ACQUISITION","PREPROCESSING"]
+  config:
+    sampling_rate: 250
+    quality_filter: "venturi1_eeg_quality"
+    rfft_bands: ["delta","theta","alpha","beta","gamma"]
+
+metrics:
+  primary: ["accuracy", "macro_f1"]
+  secondary: ["kappa"]
+  latency_ms: true
+
+statistics:
+  significance_test: "Wilcoxon signed-rank (per-subject paired)"
+  comparison_pairs:
+    - ["LIFE_THEORY","CSP_LDA"]
+    - ["LIFE_THEORY","EEGNet"]
+
+reporting:
+  aggregate: "per-subject mean±std; overall macro mean±std across subjects"
+  tables: ["per_subject_results.csv","aggregate_summary.csv","wilcoxon_pvalues.csv"]
+  artifacts_dir: "artifacts/bciiv2a_minimal"
+
+notes: |
+  Ensure causal processing in pipeline and that train/test sessions are not mixed.
+  Use official subject list and session split to align with competition conventions.
+  References: BCI Competition IV 2a description and download indices; review articles and common MI settings.

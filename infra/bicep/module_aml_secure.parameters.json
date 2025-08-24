@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "project": { "value": "life" },
+    "environment": { "value": "dev" },
+    "location": { "value": "uksouth" },
+    "vnetName": { "value": "life-dev-vnet" },
+    "storageAccountName": { "value": "lifedevstgxxxxx" },
+    "keyVaultName": { "value": "life-dev-kv" },
+    "workspaceName": { "value": "life-dev-mlw" },
+    "useCmk": { "value": true },
+    "adminObjectIds": {
+      "value": [
+        "<AAD_OBJECT_ID_1>",
+        "<AAD_OBJECT_ID_2>"
+      ]
+    }
+  }
+}

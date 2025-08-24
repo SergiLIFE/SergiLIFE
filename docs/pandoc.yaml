@@ -1,0 +1,56 @@
+title: "L.I.F.E THEORY — A Self‑Evolving Neural Architecture for Autonomous Intelligence"
+author:
+  - SergiLIFE
+# Use current paper date; adjust per release tagging
+date: "2025-08-23"
+keywords:
+  - autonomous AI
+  - BCI
+  - self-optimization
+  - SOTA
+  - clinical latency
+abstract: |
+  This paper presents L.I.F.E THEORY (Learning Individually from Experience), a novel self-evolving neural architecture that demonstrates fully autonomous intelligence through closed-loop learning, self-organization, and continuous optimization. The system achieves state-of-the-art latency (1.75 ms mean; 57× faster than clinical SOTA) with competitive accuracy (79.9%) and complete CI/CD automation, producing an auditable evidence trail suitable for clinical and regulatory review.
+rights: "© 2025 SergiLIFE. All rights reserved."
+footer: "© 2025 SergiLIFE. All rights reserved. Unauthorized commercial use prohibited."
+long_rights: |
+  © 2025 SergiLIFE. All rights reserved.
+  This publication and all associated content (including text, figures, diagrams, data, and code snippets) are proprietary to SergiLIFE and protected by applicable copyright, trade secret, and trademark laws. No part of this work may be reproduced, distributed, publicly displayed, transmitted, or used to create derivative works, in whole or in part, in any form or by any means (including copying, recording, or information storage and retrieval systems) without the prior written consent of SergiLIFE. Commercial use, adaptation, or incorporation into products or services is strictly prohibited without an executed license agreement from SergiLIFE. “L.I.F.E THEORY,” “SergiLIFE,” and any associated logos or marks are trademarks or registered trademarks of SergiLIFE or its affiliates and may not be used without express permission. All other trademarks are the property of their respective owners.
+optional_clauses: |
+  Confidentiality (if sharing under NDA): This document contains confidential and proprietary information of SergiLIFE. Disclosure, copying, or distribution is prohibited without prior written consent.
+  No license granted: Nothing in this document grants any license, express or implied, to any intellectual property rights of SergiLIFE.
+  Patent notice (if applicable): Certain methods and systems described herein may be the subject of pending or granted patents. Unauthorized practice is prohibited.
+  Evaluation only (if sending to partners): Provided solely for evaluation; any other use requires a separate written agreement.
+  Contact: For licensing and permissions, contact legal@sergilife.com
+papersize: a4
+geometry:
+  - margin=1in
+linkcolor: blue
+colorlinks: true
+urlcolor: blue
+pdf-engine: xelatex
+standalone: true
+table-of-contents: true
+toc-depth: 3
+number-sections: true
+# LaTeX header/footer styling
+header-includes:
+  - |
+    \usepackage{fancyhdr}
+    \usepackage{draftwatermark}
+    % Watermark settings
+    \SetWatermarkText{Confidential — Proprietary}
+    \SetWatermarkScale{0.9}
+    \SetWatermarkColor[gray]{0.85}
+    \SetWatermarkAngle{45}
+    % Page style
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{L.I.F.E THEORY}
+    \lhead{SergiLIFE}
+    \cfoot{\thepage}
+    \fancyfoot[L]{© 2025 SergiLIFE. All rights reserved. Unauthorized commercial use prohibited.}
+variables:
+  linestretch: 1.1
+  mainfont: "Times New Roman"
+  monofont: "Consolas"
