@@ -1,0 +1,39 @@
+﻿# VS Code specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.log
+# Python
+__pycache__/
+*.py[cod]
+*.class
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+# Virtual environments
+.venv/
+venv/
+env/
+# Azure
+.azure/
+azurite_db_backup_*.tar.gz
+__azurite_db_table__.json
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+# Large files and data
+*.zip
+*.tar.gz
+data/
+datasets/
+models/
+*.npz
+# Build artifacts
+build/
+dist/
+target/
+benchmark-*.json
