@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import os
 from azureml.core import Workspace, Experiment, Model, Dataset
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -6,26 +5,6 @@ from azureml.pipeline.steps import AutoMLStep
 from azureml.train.automl import AutoMLConfig
 from azureml.exceptions import WorkspaceException, ModelException, DatasetException
 from azure.iot.device import IoTHubDeviceClient
-=======
-{
-  "resource": "/workspaces/your-project-path/.devcontainer/devcontainer.json",
-  "owner": "cSpell",
-  "code": "cspell-unknown-word",
-  "message": "Technical term 'fmax' detected (likely valid in context)",
-  "source": "cSpell",
-  "startLineNumber": 15,
-  "startColumn": 12,
-  "endLineNumber": 15,
-  "endColumn": 16,
-  "suggestions": [
-    {
-      "value": "fmax",
-      "isTechnical": true,
-      "description": "Common mathematical/engineering function (maximum of two floats)"
-    },
-    {
-      "value": "f_max",
->>>>>>> Stashed changes
 
 DEVICE_CONN_STR = os.getenv("IOT_HUB_CONN_STR")
 
