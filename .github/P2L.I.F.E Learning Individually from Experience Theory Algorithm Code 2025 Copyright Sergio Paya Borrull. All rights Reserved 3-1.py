@@ -944,8 +944,7 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-# ==================== Constants and Configurations ====================
-NUM_TEST_REPEATS = 100  # Number of repetitions for performance tests
+# ==================== Constants and Configurations =============NUM_TEST_REPEATS = 100  # Number of repetitions for performance tests
 ONNX_MODEL_PATH = "life_model.onnx"  # ONNX model file path
 DUMMY_INPUT_SIZE = (1, 10)  # Dummy input data size
 AZURE_CONFIG = {
@@ -1480,8 +1479,7 @@ def time_series_cv(model, X, y):
         return results
 
 # Example Usage
-# ==================== Main Execution ====================
-async def main():
+# ==================== Main Execution =============async def main():
     # Initialize Azure services
     azure_manager = AzureServiceManager()
     azure_manager.initialize_services()
@@ -1671,8 +1669,7 @@ quantized_model = torch.quantization.quantize_dynamic(
 )
 
 ```ssm-json
-# ==================== Main Algorithm ====================
-class QuantumEEGProcessor:
+# ==================== Main Algorithm =============class QuantumEEGProcessor:
     def __init__(self, num_qubits):
         self.num_qubits = num_qubits
 
@@ -2436,8 +2433,7 @@ async def preprocess_eeg(raw_data):
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-        # ==================== Main Algorithm ====================
-        class LIFEAlgorithm:
+        # ==================== Main Algorithm =============        class LIFEAlgorithm:
             def __init__(self):
                 self.cycle_count = 0  # Track the number of cycles
                 self.error_margin = 1.0  # Example initial error margin

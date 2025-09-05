@@ -1,7 +1,6 @@
 """
 3-Venturi Control System for L.I.F.E Theory
-============================================
-
+=====================================
 Three coordinated Venturi stages modeled as controllable flow constraints
 to regulate computational throughput and stability like a fluid system.
 

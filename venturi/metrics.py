@@ -1,7 +1,6 @@
 """
 Venturi Metrics and Telemetry
-=============================
-
+======================
 Telemetry collection and efficiency calculations for the 3-Venturi system.
 """
 
